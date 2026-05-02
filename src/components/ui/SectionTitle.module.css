@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.rule {
+  display: block;
+  width: 48px;
+  height: var(--rule-medium);
+  background: var(--color-ink);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: var(--weight-extrabold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+/* ─── Tailles ─── */
+.size-sm .heading  { font-size: var(--fs-display-sm); letter-spacing: var(--tracking-wide); }
+.size-md .heading  { font-size: var(--fs-display-md); }
+.size-lg .heading  { font-size: var(--fs-display-lg); }
+.size-xl .heading  { font-size: var(--fs-display-xl); }
+
+/* ─── Alignements ─── */
+.align-left { align-items: flex-start; text-align: left; }
+.align-center { align-items: center; text-align: center; }
+.align-right { align-items: flex-end; text-align: right; }

@@ -1,0 +1,95 @@
+.wrapper {
+  padding-block: clamp(4rem, 10vh, 8rem) var(--section-y);
+}
+
+.inner {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-9);
+  padding-bottom: var(--space-6);
+  border-bottom: var(--rule-thin) solid var(--color-rule);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-md);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  color: var(--color-ink);
+  margin: 0;
+  line-height: var(--lh-tight);
+}
+
+.update {
+  font-size: var(--fs-body-sm);
+  color: var(--color-ink-muted);
+  margin: var(--space-2) 0 0 0;
+  font-style: italic;
+}
+
+/* ─── Contenu typographié ─── */
+
+.content {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--color-ink-soft);
+}
+
+.content :global(h2) {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-sm);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-ink);
+  margin: var(--space-8) 0 var(--space-4) 0;
+  line-height: var(--lh-snug);
+}
+
+.content :global(h2:first-child) { margin-top: 0; }
+
+.content :global(h3) {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+  margin: var(--space-6) 0 var(--space-3) 0;
+}
+
+.content :global(p) {
+  margin: 0 0 var(--space-4) 0;
+}
+
+.content :global(ul),
+.content :global(ol) {
+  margin: 0 0 var(--space-4) 0;
+  padding-left: var(--space-6);
+}
+
+.content :global(li) {
+  margin-bottom: var(--space-2);
+}
+
+.content :global(a) {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-rule-strong);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--duration-fast) var(--ease-out);
+}
+
+.content :global(a:hover) {
+  text-decoration-color: var(--color-ink);
+}
+
+.content :global(strong) {
+  color: var(--color-ink);
+  font-weight: var(--weight-semibold);
+}

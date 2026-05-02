@@ -1,0 +1,248 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 640px;
+  max-height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  color: var(--color-bg);
+  /* Compense le header sticky pour que le hero remplisse le viewport visible */
+  margin-top: calc(-1 * (clamp(0.875rem, 2vw, 1.25rem) * 2 + clamp(42px, 5vw, 60px)));
+  padding-top: calc(clamp(0.875rem, 2vw, 1.25rem) * 2 + clamp(42px, 5vw, 60px));
+}
+
+/* ─── IMAGE + OVERLAYS ────────────────────── */
+
+.imageWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Ken Burns subtil : zoom très lent sur 30s */
+  animation: kenBurns 30s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes kenBurns {
+  0%   { transform: scale(1.05) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1%, -1.5%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image { animation: none; transform: scale(1.02); }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(15, 14, 11, 0.65) 0%,
+      rgba(15, 14, 11, 0.35) 50%,
+      rgba(15, 14, 11, 0.55) 100%
+    );
+}
+
+/* Vignettage léger pour ancrer le regard au centre */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 30%,
+    rgba(15, 14, 11, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* ─── WATERMARK NUMERO ────────────────────── */
+
+.watermark {
+  position: absolute;
+  top: clamp(15%, 18vh, 20%);
+  right: clamp(2rem, 6vw, 8rem);
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 20vw, 18rem);
+  font-weight: var(--weight-extrabold);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: rgba(255, 255, 255, 0.06);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 880px) {
+  .watermark { display: none; }
+}
+
+/* ─── CONTENU ─────────────────────────────── */
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+  padding-block: clamp(5rem, 10vh, 8rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: fit-content;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  box-shadow: 0 0 12px var(--color-accent-light);
+  animation: pulse 2.4s var(--ease-in-out) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ─── TITRE ───────────────────────────────── */
+
+.title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-extrabold);
+  font-size: var(--fs-display-xl);
+  line-height: 0.92;
+  letter-spacing: var(--tracking-tightest);
+  text-transform: uppercase;
+  color: var(--color-bg);
+  margin: 0;
+  max-width: 14ch;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleLine1 {
+  display: block;
+}
+
+.titleLine2 {
+  display: block;
+  padding-left: clamp(0px, 8vw, 5rem);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.titleLine2 em {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: -0.04em;
+  color: var(--color-accent-light);
+  font-size: 1.05em;
+}
+
+/* ─── LEAD ────────────────────────────────── */
+
+.lead {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: clamp(1.0625rem, 1vw + 0.5rem, 1.25rem);
+  line-height: var(--lh-relaxed);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 46ch;
+  margin: 0;
+}
+
+.lead em {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-accent-light);
+}
+
+/* ─── CTAs ────────────────────────────────── */
+
+.ctas {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+
+@media (max-width: 540px) {
+  .ctas { flex-direction: column; align-items: stretch; }
+  .ctas > * { width: 100%; }
+}
+
+/* ─── SCROLL HINT ─────────────────────────── */
+
+.scrollHint {
+  position: absolute;
+  bottom: var(--space-7);
+  right: var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.scrollLabel {
+  font-family: var(--font-display);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 64px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.5));
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollLine::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, transparent, var(--color-bg));
+  animation: scrollDown 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scrollDown {
+  0% { top: -50%; }
+  100% { top: 100%; }
+}
+
+@media (max-width: 880px) {
+  .scrollHint { display: none; }
+}

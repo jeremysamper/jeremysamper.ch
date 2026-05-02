@@ -1,0 +1,97 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 2.25rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  border: var(--rule-thin) solid currentColor;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+/* Effet hover : fond qui se remplit depuis le bas (subtil et élégant) */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-ink);
+  transform: translateY(100%);
+  transition: transform var(--duration-base) var(--ease-out);
+  z-index: 0;
+}
+
+.btn:hover::before { transform: translateY(0); }
+
+/* ─── PRIMARY (noir sur blanc) ─── */
+.primary {
+  color: var(--color-ink);
+  border-color: var(--color-rule-strong);
+}
+.primary:hover {
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+}
+
+/* ─── LIGHT (sur fond sombre/photo) ─── */
+.light {
+  color: var(--color-bg);
+  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.light::before { background: var(--color-bg); }
+.light:hover {
+  color: var(--color-ink);
+  border-color: var(--color-bg);
+  background-color: transparent;
+}
+
+/* ─── GHOST-LIGHT (sur fond sombre, plus discret) ─── */
+.ghost-light {
+  color: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.35);
+  background-color: transparent;
+}
+.ghost-light::before { background: var(--color-accent-light); }
+.ghost-light:hover {
+  color: var(--color-ink);
+  border-color: var(--color-accent-light);
+}
+
+/* ─── SOLID (CTA fort, fond plein noir) ─── */
+.solid {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+}
+.solid::before { background: var(--color-bg); }
+.solid:hover {
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+@media (max-width: 640px) {
+  .btn {
+    padding: 1rem 1.75rem;
+    font-size: 0.75rem;
+  }
+}

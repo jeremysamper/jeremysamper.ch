@@ -1,0 +1,294 @@
+.footer {
+  background: var(--color-bg-dark);
+  color: var(--color-bg);
+  padding-block: var(--section-y) var(--space-6);
+  margin-top: var(--section-y);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Halo subtil vert en arrière-plan */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(143, 191, 163, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── BANNER CTA ──────────────────────────── */
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  padding-bottom: var(--space-10);
+  margin-bottom: var(--space-10);
+  border-bottom: var(--rule-thin) solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 720px) {
+  .banner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.bannerContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.bannerLead {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
+  font-weight: var(--weight-extrabold);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-bg);
+  margin: 0;
+}
+
+.bannerLead em {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-accent-light);
+  letter-spacing: -0.02em;
+}
+
+.bannerText {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  max-width: 50ch;
+}
+
+.bannerCta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 1.1rem 1.75rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: transparent;
+  border: var(--rule-thin) solid rgba(255, 255, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
+  white-space: nowrap;
+}
+
+.bannerCta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent-light);
+  transform: translateY(101%);
+  transition: transform var(--duration-base) var(--ease-out);
+  z-index: 0;
+}
+
+.bannerCta > * {
+  position: relative;
+  z-index: 1;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.bannerCta:hover {
+  color: var(--color-ink);
+  border-color: var(--color-accent-light);
+}
+.bannerCta:hover::before { transform: translateY(0); }
+.bannerCta:hover svg { transform: translateX(4px); }
+
+/* ─── GRILLE 4 COLONNES ───────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  margin-bottom: var(--space-10);
+}
+
+@media (max-width: 880px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-9) var(--space-6);
+  }
+  .colBrand {
+    grid-column: 1 / -1;
+    margin-bottom: var(--space-4);
+  }
+}
+
+@media (max-width: 540px) {
+  .grid { grid-template-columns: 1fr; gap: var(--space-7); }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.colBrand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.brandLogo {
+  height: 56px;
+  width: auto;
+  filter: brightness(0) invert(1) opacity(0.92);  /* PNG vert → blanc semi-opaque */
+  object-fit: contain;
+  display: block;
+}
+
+.brandTag {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-sm);
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  max-width: 28ch;
+  line-height: var(--lh-normal);
+}
+
+.colTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.colLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.colLinks li { line-height: 1.4; }
+
+.colLinks a {
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.75);
+  transition: color var(--duration-fast) var(--ease-out);
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.colLinks a:hover { color: var(--color-bg); }
+
+/* Phone link avec drapeau pays */
+.phoneLink {
+  align-items: center !important;
+  gap: var(--space-2);
+}
+
+.phoneFlag {
+  font-family: var(--font-display);
+  font-size: 0.625rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+
+.emailLink {
+  font-size: var(--fs-body-sm) !important;
+}
+
+.address {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-sm);
+  color: rgba(255, 255, 255, 0.55);
+  line-height: var(--lh-normal);
+  font-style: normal;
+}
+
+/* ─── SOCIALS ─────────────────────────────── */
+
+.socials {
+  display: flex;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: var(--rule-thin) solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.socialLink:hover {
+  background: var(--color-accent-light);
+  color: var(--color-ink);
+  border-color: var(--color-accent-light);
+  transform: translateY(-2px);
+}
+
+.socialLink svg { width: 16px; height: 16px; }
+
+/* ─── BOTTOM BAR ──────────────────────────── */
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: var(--rule-thin) solid rgba(255, 255, 255, 0.08);
+}
+
+.copyright,
+.craft {
+  font-size: var(--fs-body-sm);
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.craft span {
+  color: var(--color-accent-light);
+  margin-right: var(--space-2);
+}

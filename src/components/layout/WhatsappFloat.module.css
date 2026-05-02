@@ -1,0 +1,29 @@
+.float {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-overlay);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.float:hover, .float:focus-visible {
+  transform: scale(1.05);
+}
+
+.float svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 880px) {
+  .float { display: inline-flex; }
+}
