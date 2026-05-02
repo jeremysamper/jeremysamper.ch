@@ -13,7 +13,7 @@ import styles from './Contact.module.css';
  * 3. Remplacer 'YOUR_FORMSPREE_ID' ci-dessous par l'ID
  * 4. C'est tout — Formspree enverra les messages à l'email associé.
  */
-const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+const FORMSPREE_ID = 'mqeneayz';
 const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 const ESTABLISHMENT_OPTIONS = [
