@@ -3,6 +3,7 @@ import Container from '../ui/Container.jsx';
 import SectionTitle from '../ui/SectionTitle.jsx';
 import FadeIn from '../ui/FadeIn.jsx';
 import Button from '../ui/Button.jsx';
+import ResponsiveImage from '../ui/ResponsiveImage.jsx';
 import { SERVICES } from '../../data/services.js';
 import styles from './ServicesGrid.module.css';
 
@@ -28,11 +29,12 @@ export default function ServicesGrid() {
             >
               <Link to="/services" className={styles.card}>
                 <div className={styles.imageWrap}>
-                  <img
-                    src={service.image}
+                  <ResponsiveImage
+                    picture={service.image}
                     alt={service.alt}
-                    loading="lazy"
                     className={styles.image}
+                    sizes="(min-width: 1100px) 33vw, (min-width: 700px) 50vw, 100vw"
+                    loading="lazy"
                   />
                 </div>
                 <div className={styles.body}>

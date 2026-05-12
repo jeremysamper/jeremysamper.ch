@@ -1,8 +1,9 @@
 import Container from '../components/ui/Container.jsx';
 import FadeIn from '../components/ui/FadeIn.jsx';
 import Button from '../components/ui/Button.jsx';
-import portrait from '../assets/images/portrait-jeremy.jpg';
-import action from '../assets/images/assiette-bleue.jpg';
+import ResponsiveImage from '../components/ui/ResponsiveImage.jsx';
+import portrait from '../assets/images/portrait-jeremy.jpg?responsive';
+import action from '../assets/images/assiette-bleue.jpg?responsive';
 import { useDocumentTitle } from '../hooks/useDocumentTitle.js';
 import styles from './About.module.css';
 
@@ -40,7 +41,7 @@ export default function About() {
       {/* HERO PORTRAIT */}
       <header className={styles.hero}>
         <div className={styles.heroImage}>
-          <img src={portrait} alt="Portrait de Jérémy Samper en cuisine, veste de chef sombre, regard intense tourné sur le côté" loading="eager" />
+          <ResponsiveImage picture={portrait} alt="Portrait de Jérémy Samper en cuisine, veste de chef sombre, regard intense tourné sur le côté" sizes="100vw" loading="eager" fetchPriority="high" />
           <div className={styles.heroOverlay} aria-hidden="true" />
         </div>
         <Container className={styles.heroContent}>
@@ -89,7 +90,7 @@ export default function About() {
         <div className={styles.actionGrid}>
           <FadeIn className={styles.actionImageCol}>
             <figure className={styles.actionFigure}>
-              <img src={action} alt="Création gastronomique vue de dessus : assiette en céramique bleue avec pétales violets, mousse et croûtons sur fond granite" loading="lazy" />
+              <ResponsiveImage picture={action} alt="Création gastronomique vue de dessus : assiette en céramique bleue avec pétales violets, mousse et croûtons sur fond granite" sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
               <figcaption className={styles.actionCaption}>
                 <span aria-hidden="true">—</span> Sur le terrain, en cuisine
               </figcaption>

@@ -1,17 +1,19 @@
 import Button from '../ui/Button.jsx';
 import FadeIn from '../ui/FadeIn.jsx';
+import ResponsiveImage from '../ui/ResponsiveImage.jsx';
 import { CONTACT } from '../../data/contact.jsx';
-import ctaImage from '../../assets/images/cta-final.jpg';
+import ctaImage from '../../assets/images/cta-final.jpg?responsive';
 import styles from './FinalCta.module.css';
 
 export default function FinalCta() {
   return (
     <section className={styles.section} aria-labelledby="final-cta-title">
       <div className={styles.imageWrap}>
-        <img
-          src={ctaImage}
+        <ResponsiveImage
+          picture={ctaImage}
           alt=""
           className={styles.image}
+          sizes="100vw"
           loading="lazy"
         />
         <div className={styles.overlay} aria-hidden="true" />

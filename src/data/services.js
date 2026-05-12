@@ -3,11 +3,11 @@
  * avec son image, son titre et sa description (textes Wix conservés).
  */
 
-import imgOrganisation from '../assets/images/service-organisation.jpg';
-import imgCouts from '../assets/images/service-couts.jpg';
-import imgCartes from '../assets/images/service-cartes.jpg';
-import imgFormation from '../assets/images/service-formation.jpg';
-import imgConsulting from '../assets/images/service-consulting.jpg';
+import imgOrganisation from '../assets/images/service-organisation.jpg?responsive';
+import imgCouts from '../assets/images/service-couts.jpg?responsive';
+import imgCartes from '../assets/images/service-cartes.jpg?responsive';
+import imgFormation from '../assets/images/service-formation.jpg?responsive';
+import imgConsulting from '../assets/images/service-consulting.jpg?responsive';
 
 export const SERVICES = [
   {
