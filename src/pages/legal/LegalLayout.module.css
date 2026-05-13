@@ -65,12 +65,16 @@
 
 .content :global(p) {
   margin: 0 0 var(--space-4) 0;
+  /* Mesure de lecture cible — cohérent avec .measure utilisé sur le
+     reste du site. Sur mobile, sans effet (viewport déjà étroite). */
+  max-width: var(--measure-max);
 }
 
 .content :global(ul),
 .content :global(ol) {
   margin: 0 0 var(--space-4) 0;
   padding-left: var(--space-6);
+  max-width: var(--measure-max);
 }
 
 .content :global(li) {
