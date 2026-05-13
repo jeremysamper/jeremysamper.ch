@@ -7,13 +7,14 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle.js';
 import styles from './Contact.module.css';
 
 /**
- * Pour activer l'envoi réel des messages :
- * 1. Créer un compte Formspree (gratuit)
- * 2. Créer un formulaire et copier l'ID
- * 3. Remplacer 'YOUR_FORMSPREE_ID' ci-dessous par l'ID
- * 4. C'est tout — Formspree enverra les messages à l'email associé.
+ * Identifiant Formspree lu depuis VITE_FORMSPREE_ID (.env), avec fallback
+ * sur l'ID actuel en dur pour ne pas casser le dev local sans .env.
+ * Pour activer l'envoi en prod :
+ * 1. Créer / récupérer l'ID Formspree sur https://formspree.io
+ * 2. Configurer VITE_FORMSPREE_ID dans les variables d'environnement Vercel
+ * 3. Re-déployer — Formspree envoie les messages à l'email associé au compte.
  */
-const FORMSPREE_ID = 'mqeneayz';
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || 'mqeneayz';
 const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 const ESTABLISHMENT_OPTIONS = [
