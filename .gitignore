@@ -9,3 +9,6 @@ dist-ssr
 .vercel
 .vite
 samper-consulting-app/
+
+# Backups locaux des sources images avant redimensionnement (script resize-sources.mjs)
+src/assets/images/_archive/
