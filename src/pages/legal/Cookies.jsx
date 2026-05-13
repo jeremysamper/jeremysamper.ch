@@ -2,7 +2,10 @@ import LegalLayout from './LegalLayout.jsx';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle.js';
 
 export default function Cookies() {
-  useDocumentTitle("Politique en matière de cookies — Jérémy Samper");
+  useDocumentTitle(
+    "Politique en matière de cookies — Jérémy Samper",
+    "Politique de cookies du site jeremysamper.ch : finalités, gestion et consentement."
+  );
   return (
     <LegalLayout title="Politique de cookies" lastUpdate="Mai 2026">
 

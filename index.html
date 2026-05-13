@@ -5,19 +5,64 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#1f4e3d" />
+    <meta name="color-scheme" content="light" />
 
     <title>Jérémy Samper — Consultant culinaire</title>
     <meta name="description" content="Consultant en restauration spécialisé dans l'organisation des cuisines et l'optimisation de la rentabilité. Suisse romande et France." />
 
+    <link rel="canonical" href="https://www.jeremysamper.ch/" />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.jeremysamper.ch/" />
+    <meta property="og:site_name" content="Jérémy Samper" />
     <meta property="og:title" content="Jérémy Samper — Consultant culinaire" />
     <meta property="og:description" content="Consultant en restauration spécialisé dans l'organisation des cuisines et l'optimisation de la rentabilité." />
-    <meta property="og:image" content="https://www.jeremysamper.ch/og-image.jpg" />
     <meta property="og:locale" content="fr_FR" />
+    <!--
+      TODO Jérémy : déposer un fichier 1200×630 (ex. crop de hero-dressage.jpg)
+      dans public/og-image.jpg puis décommenter ces deux lignes :
+      <meta property="og:image" content="https://www.jeremysamper.ch/og-image.jpg" />
+      <meta property="og:image:alt" content="Jérémy Samper, consultant culinaire — dressage en cuisine" />
+    -->
 
-    <!-- Preconnect to Google Fonts (we'll self-host later, but for dev this is fine) -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jérémy Samper — Consultant culinaire" />
+    <meta name="twitter:description" content="Consultant en restauration spécialisé dans l'organisation des cuisines et l'optimisation de la rentabilité. Suisse romande &amp; France." />
+    <!-- TODO Jérémy : <meta name="twitter:image" content="https://www.jeremysamper.ch/og-image.jpg" /> -->
+
+    <!-- Schema.org : ProfessionalService -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Jérémy Samper — Consultant culinaire",
+        "description": "Consultant en restauration et hôtellerie. Organisation de cuisine, optimisation des coûts, création de cartes, formation des équipes.",
+        "url": "https://www.jeremysamper.ch/",
+        "image": "https://www.jeremysamper.ch/favicon.svg",
+        "telephone": ["+41766265400", "+33767792610"],
+        "email": "contact@jeremysamper.ch",
+        "address": {
+          "@type": "PostalAddress",
+          "postalCode": "1976",
+          "addressLocality": "Erde",
+          "addressRegion": "Valais",
+          "addressCountry": "CH"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Suisse" },
+          { "@type": "Country", "name": "France" }
+        ],
+        "priceRange": "$$$",
+        "sameAs": [
+          "https://wa.me/33767792610",
+          "https://www.linkedin.com/in/jérémy-samper/"
+        ]
+      }
+    </script>
+
+    <!-- Preconnect to Google Fonts (à self-host en v1.1 pour gagner sur le LCP) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet" />

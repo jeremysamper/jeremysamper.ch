@@ -2,7 +2,10 @@ import LegalLayout from './LegalLayout.jsx';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle.js';
 
 export default function Conditions() {
-  useDocumentTitle("Conditions d'utilisation — Jérémy Samper");
+  useDocumentTitle(
+    "Conditions d'utilisation — Jérémy Samper",
+    "Conditions générales d'utilisation du site jeremysamper.ch."
+  );
   return (
     <LegalLayout title="Conditions d'utilisation" lastUpdate="Mai 2026">
 
