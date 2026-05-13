@@ -80,8 +80,8 @@ export default function Contact() {
               Parlons de <em>votre établissement.</em>
             </h1>
             <p className={styles.pageLead}>
-              Le premier échange est gratuit et sans engagement. Réponse sous 48 heures
-              ouvrées.
+              Un appel de découverte de 20 à 30 minutes, gratuit et sans engagement —
+              pour cadrer votre besoin et voir si l'on peut travailler ensemble. Réponse sous 48 heures ouvrées.
             </p>
           </FadeIn>
         </Container>
@@ -136,8 +136,8 @@ export default function Contact() {
               <em>Décrivez-moi</em><br/>votre situation.
             </h2>
             <p className={styles.formIntroText}>
-              Plus vous serez précis sur le contexte (taille de l'équipe, type de cuisine,
-              objectifs), plus ma réponse sera utile.
+              Quelques lignes suffisent pour démarrer. Plus vous serez précis sur le contexte
+              (taille de l'équipe, type de cuisine, objectifs), plus l'échange ira vite à l'essentiel.
             </p>
 
             <address className={styles.address}>

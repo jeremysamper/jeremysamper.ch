@@ -40,7 +40,7 @@ export default function Realisations() {
             <FadeIn className={styles.placeholderInner}>
               <span className="eyebrow">Ils m'ont fait confiance</span>
               <p className={styles.placeholderText}>
-                Les logos des établissements accompagnés seront ajoutés ici prochainement.
+                Une sélection sera publiée prochainement, sur accord des établissements partenaires.
               </p>
             </FadeIn>
           </Container>
@@ -87,7 +87,7 @@ export default function Realisations() {
             <FadeIn className={styles.placeholderInner}>
               <span className="eyebrow">Témoignages</span>
               <p className={styles.placeholderText}>
-                Les témoignages des établissements accompagnés seront publiés prochainement.
+                Les retours des établissements accompagnés seront publiés ici, après validation de chacun.
               </p>
             </FadeIn>
           </Container>
