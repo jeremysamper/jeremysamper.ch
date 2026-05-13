@@ -4,7 +4,9 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  /* Texte 1.4 / image 1 — la colonne image est ensuite cappée à 400px
+     via .imageCol, donc le ratio effectif est encore plus serré. */
+  grid-template-columns: 1.4fr 1fr;
   gap: clamp(2rem, 6vw, 6rem);
   align-items: center;
 }
@@ -64,7 +66,11 @@
 
 /* ─── IMAGE ───────────────────────────────── */
 
-.imageCol { width: 100%; }
+.imageCol {
+  width: 100%;
+  max-width: 400px;       /* portrait modeste, posture éditoriale */
+  justify-self: start;
+}
 
 .figure {
   margin: 0;
@@ -72,14 +78,10 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  overflow: hidden;       /* contient le scale au survol */
 }
 
 .figure img {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
   transition: transform 1.2s var(--ease-out);
 }
 
@@ -103,6 +105,12 @@
 }
 
 @media (max-width: 880px) {
-  .imageCol { order: -1; }
-  .figure img { aspect-ratio: 4/3; }
+  .imageCol {
+    order: -1;
+    max-width: none;          /* sur mobile la colonne reprend toute la largeur */
+  }
+  /* On force 4/3 paysage sur mobile (override de l'aspect-ratio inline
+     du composant <Image> en 4/5) — un portrait plein-largeur sur petit
+     écran écrase le texte qui suit. */
+  .figure img { aspect-ratio: 4/3 !important; }
 }

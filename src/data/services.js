@@ -1,13 +1,21 @@
 /**
- * Liste des 5 services. Chaque service est une "card" indépendante
- * avec son image, son titre et sa description (textes Wix conservés).
+ * Liste des 5 services.
+ *
+ * Champs :
+ *   - id / number / title / short / description / alt : données éditoriales
+ *   - image : import vite-imagetools (`?card`) — toujours présent, consommé
+ *     par ServicesGrid (Home, 5 cards carrées)
+ *   - accent : variation d'affichage sur la page /services détail
+ *       type='image' → bloc image avec ratio dédié (3/4, 1/1, 4/3)
+ *       type='text'  → mot-signature en gros corps italique
+ *       type='quote' → pull-quote courte (bordure verticale)
  */
 
-import imgOrganisation from '../assets/images/service-organisation.jpg?responsive';
-import imgCouts from '../assets/images/service-couts.jpg?responsive';
-import imgCartes from '../assets/images/service-cartes.jpg?responsive';
-import imgFormation from '../assets/images/service-formation.jpg?responsive';
-import imgConsulting from '../assets/images/service-consulting.jpg?responsive';
+import imgOrganisation from '../assets/images/service-organisation.jpg?card';
+import imgCouts from '../assets/images/service-couts.jpg?card';
+import imgCartes from '../assets/images/service-cartes.jpg?card';
+import imgFormation from '../assets/images/service-formation.jpg?card';
+import imgConsulting from '../assets/images/service-consulting.jpg?card';
 
 export const SERVICES = [
   {
@@ -19,6 +27,7 @@ export const SERVICES = [
       "Mettre en place des méthodes de travail simples et adaptées au terrain. Cadrer les postes, sécuriser les flux du coup de feu, clarifier les rôles entre cuisine et salle. L'objectif : un service plus fluide, des équipes alignées et une organisation qui tient dans la durée.",
     image: imgOrganisation,
     alt: 'Dressage soigné d\'une viande sauce dans une assiette en céramique',
+    accent: { type: 'image', ratio: '3/4' },
   },
   {
     id: 'couts',
@@ -29,6 +38,7 @@ export const SERVICES = [
       "Analyser les coûts matières et la rentabilité poste par poste pour identifier les leviers concrets. Construire des fiches techniques utilisables, suivre les pertes, ajuster la carte là où les marges décrochent — sans rien céder sur la qualité ni sur l'identité de la maison.",
     image: imgCouts,
     alt: 'Dessert chocolat-pétales sur ardoise, photographie gastronomique',
+    accent: { type: 'text', value: 'Justesse.' },
   },
   {
     id: 'cartes',
@@ -39,6 +49,7 @@ export const SERVICES = [
       "Construire une carte cohérente avec l'identité de l'établissement, la saisonnalité et la capacité réelle de la brigade. Chaque plat est pensé pour être lisible côté client, tenable côté production, et juste côté marge — avec le produit toujours en premier.",
     image: imgCartes,
     alt: 'Burger gourmet bun brioché, salade et bacon, sur assiette en céramique',
+    accent: { type: 'image', ratio: '1/1' },
   },
   {
     id: 'formation',
@@ -49,6 +60,8 @@ export const SERVICES = [
       "Intervenir directement en cuisine, aux côtés des équipes. Transmettre les bons gestes, installer des standards lisibles, faire monter en compétence chacun à son rythme. Une formation sur le terrain, calée sur la réalité de votre établissement et de ses objectifs.",
     image: imgFormation,
     alt: 'Poireau grillé en sauce, fleurs comestibles, dressage gastronomique',
+    // Deux phrases distinctes — saut de ligne explicite à l'affichage.
+    accent: { type: 'quote', value: ["Le terrain d'abord.", 'Le cadre ensuite.'] },
   },
   {
     id: 'consulting',
@@ -59,5 +72,6 @@ export const SERVICES = [
       "Accompagnement sur mesure, ponctuel ou inscrit dans la durée. Présence terrain régulière, regard extérieur et suivi des actions engagées — pour avancer concrètement sur les sujets qui comptent : organisation, marges, recrutement, ouverture, transmission.",
     image: imgConsulting,
     alt: 'Jérémy Samper en pleine action de dressage en cuisine, vue de profil, mains gantées',
+    accent: { type: 'image', ratio: '4/3' },
   },
 ];

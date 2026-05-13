@@ -33,6 +33,7 @@ export default function Image({
   src,
   alt,
   ratio,
+  fill = false,
   sizes,
   loading = 'lazy',
   fetchPriority,
@@ -47,13 +48,39 @@ export default function Image({
       // eslint-disable-next-line no-console
       console.error('<Image> : prop `alt` manquante (utiliser alt="" pour décoratif).');
     }
-    if (!parseRatio(ratio)) {
+    if (!fill && !parseRatio(ratio)) {
       // eslint-disable-next-line no-console
-      console.error(`<Image> : prop \`ratio\` invalide ou manquante (reçu : ${JSON.stringify(ratio)}). Format attendu : "3/4", "1/1", "4/3", etc.`);
+      console.error(`<Image> : prop \`ratio\` invalide ou manquante (reçu : ${JSON.stringify(ratio)}). Format attendu : "3/4", "1/1", "4/3", etc. Pour un fill complet du parent, utiliser fill.`);
     }
   }
 
   if (!src || !src.src) return null;
+
+  // Mode `fill` : l'image remplit le parent (qui doit avoir des
+  // dimensions connues — Hero, FinalCta). Pas d'aspect-ratio imposé.
+  // Le parent porte la responsabilité du CLS via min-height etc.
+  if (fill) {
+    return (
+      <img
+        src={src.src}
+        srcSet={src.srcset}
+        sizes={sizes}
+        alt={alt ?? ''}
+        loading={loading}
+        fetchpriority={fetchPriority}
+        decoding={decoding}
+        className={className}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: objectPosition || 'center',
+          display: 'block',
+          ...style,
+        }}
+      />
+    );
+  }
 
   const r = parseRatio(ratio) ?? { w: 1, h: 1, css: '1 / 1' };
 

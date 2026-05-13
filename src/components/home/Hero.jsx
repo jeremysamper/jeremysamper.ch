@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import Button from '../ui/Button.jsx';
-import ResponsiveImage from '../ui/ResponsiveImage.jsx';
-import heroImage from '../../assets/images/hero-dressage.jpg?responsive';
+import Image from '../ui/Image.jsx';
+import heroImage from '../../assets/images/hero-dressage.jpg?wide';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -24,9 +24,10 @@ export default function Hero() {
     <section className={styles.hero} aria-label="Présentation">
       {/* Image de fond avec effet Ken Burns subtil */}
       <div className={styles.imageWrap}>
-        <ResponsiveImage
-          picture={heroImage}
+        <Image
+          src={heroImage}
           alt="Dressage d'un gravlax en cuisine : main gantée disposant délicatement les éléments sur l'assiette"
+          fill
           className={styles.image}
           sizes="100vw"
           loading="eager"
