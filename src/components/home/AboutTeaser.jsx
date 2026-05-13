@@ -1,7 +1,8 @@
 import Container from '../ui/Container.jsx';
 import Button from '../ui/Button.jsx';
 import FadeIn from '../ui/FadeIn.jsx';
-import portrait from '../../assets/images/portrait-jeremy-souriant.jpg';
+import ResponsiveImage from '../ui/ResponsiveImage.jsx';
+import portrait from '../../assets/images/portrait-jeremy-souriant.jpg?responsive';
 import styles from './AboutTeaser.module.css';
 
 export default function AboutTeaser() {
@@ -38,9 +39,10 @@ export default function AboutTeaser() {
 
           <FadeIn delay={0.15} className={styles.imageCol}>
             <figure className={styles.figure}>
-              <img
-                src={portrait}
+              <ResponsiveImage
+                picture={portrait}
                 alt="Portrait de Jérémy Samper en cuisine, veste de chef sombre, sourire et bras croisés"
+                sizes="(min-width: 900px) 50vw, 100vw"
                 loading="lazy"
               />
               <figcaption className={styles.caption}>

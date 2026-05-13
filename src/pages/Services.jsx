@@ -1,6 +1,7 @@
 import Container from '../components/ui/Container.jsx';
 import FadeIn from '../components/ui/FadeIn.jsx';
 import Button from '../components/ui/Button.jsx';
+import ResponsiveImage from '../components/ui/ResponsiveImage.jsx';
 import { SERVICES } from '../data/services.js';
 import { useDocumentTitle } from '../hooks/useDocumentTitle.js';
 import styles from './Services.module.css';
@@ -42,7 +43,7 @@ export default function Services() {
             >
               <div className={styles.imageCol}>
                 <figure className={styles.figure}>
-                  <img src={service.image} alt={service.alt} loading="lazy" />
+                  <ResponsiveImage picture={service.image} alt={service.alt} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
                 </figure>
               </div>
 
