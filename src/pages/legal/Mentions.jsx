@@ -2,7 +2,10 @@ import LegalLayout from './LegalLayout.jsx';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle.js';
 
 export default function Mentions() {
-  useDocumentTitle("Mentions légales — Jérémy Samper");
+  useDocumentTitle(
+    "Mentions légales — Jérémy Samper",
+    "Mentions légales du site jeremysamper.ch : éditeur, hébergement, propriété intellectuelle."
+  );
   return (
     <LegalLayout title="Mentions légales" lastUpdate="Mai 2026">
       <h2>1. Éditeur du site</h2>

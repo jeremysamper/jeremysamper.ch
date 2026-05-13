@@ -9,7 +9,10 @@ import FinalCta from '../components/home/FinalCta.jsx';
 import { useDocumentTitle } from '../hooks/useDocumentTitle.js';
 
 export default function Home() {
-  useDocumentTitle("Jérémy Samper — Consultant culinaire");
+  useDocumentTitle(
+    "Jérémy Samper — Consultant culinaire | Suisse romande &amp; France",
+    "Jérémy Samper, consultant culinaire pour restaurants et hôtels en Suisse romande et en France. Organisation de cuisine, optimisation des coûts, création de cartes, formation des équipes."
+  );
   return (
     <>
       <Hero />

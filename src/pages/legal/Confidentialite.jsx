@@ -2,7 +2,10 @@ import LegalLayout from './LegalLayout.jsx';
 import { useDocumentTitle } from '../../hooks/useDocumentTitle.js';
 
 export default function Confidentialite() {
-  useDocumentTitle("Politique de confidentialité — Jérémy Samper");
+  useDocumentTitle(
+    "Politique de confidentialité — Jérémy Samper",
+    "Politique de confidentialité du site jeremysamper.ch : données collectées, finalités, droits RGPD."
+  );
   return (
     <LegalLayout title="Politique de confidentialité" lastUpdate="Mai 2026">
 
