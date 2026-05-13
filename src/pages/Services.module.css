@@ -46,13 +46,14 @@
 
 .row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Grille asymétrique : texte 60% / accent (image ou typo) 40%. */
+  grid-template-columns: 3fr 2fr;
   gap: clamp(2rem, 6vw, 5rem);
   align-items: center;
   scroll-margin-top: 100px;
 }
 
-.reversed .imageCol { order: 2; }
+.reversed .accentCol { order: 2; }
 .reversed .textCol { order: 1; }
 
 @media (max-width: 880px) {
@@ -60,24 +61,38 @@
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
-  .reversed .imageCol { order: 1; }
+  .reversed .accentCol { order: 1; }
   .reversed .textCol { order: 2; }
 }
 
-/* ─── Image ─── */
-.imageCol { width: 100%; }
+/* ─── Colonne accent (image | text | quote) ─── */
 
+.accentCol {
+  width: 100%;
+  /* Cap commun à 400px pour la cohérence inter-services, peu importe
+     le ratio. Aligné à droite par défaut, à gauche pour les rows
+     inversées (un service sur deux). */
+  max-width: 400px;
+  justify-self: end;
+}
+
+.reversed .accentCol { justify-self: start; }
+
+@media (max-width: 880px) {
+  .accentCol,
+  .reversed .accentCol {
+    max-width: none;
+    justify-self: stretch;
+  }
+}
+
+/* ─── Variante 'image' ───────────────────────── */
 .figure {
   margin: 0;
   overflow: hidden;
 }
 
 .figure img {
-  width: 100%;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
   transition: transform 1.2s var(--ease-out);
 }
 
@@ -85,9 +100,45 @@
   transform: scale(1.02);
 }
 
+/* Sur mobile, on force 4/3 paysage pour ne pas dominer le texte qui
+   suit (override de l'aspect-ratio inline). */
 @media (max-width: 880px) {
-  .figure img { aspect-ratio: 4/3; }
+  .figure img { aspect-ratio: 4/3 !important; }
 }
+
+/* ─── Variante 'text' : mot-signature ─────────── */
+.accentText {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(3rem, 6vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-accent-strong);
+  text-align: center;
+  align-self: center;
+}
+
+/* ─── Variante 'quote' : pull-quote ──────────── */
+.pullQuote {
+  margin: 0;
+  padding-left: var(--space-5);
+  border-left: var(--rule-medium) solid var(--color-accent-strong);
+  align-self: center;
+}
+
+.pullQuoteLine {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.pullQuoteLine + .pullQuoteLine { margin-top: 0.4em; }
 
 /* ─── Texte ─── */
 .textCol {
@@ -129,7 +180,6 @@
   line-height: var(--lh-relaxed);
   color: var(--color-ink-soft);
   margin: 0;
-  max-width: 56ch;
 }
 
 /* ─── CTA Footer ──────────────────────────── */
