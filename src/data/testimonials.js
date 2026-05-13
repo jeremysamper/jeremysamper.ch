@@ -9,7 +9,7 @@ export const TESTIMONIALS = [
     id: 't1',
     published: false,
     quote:
-      "Jérémy a apporté un regard neuf et structuré sur notre cuisine. En quelques semaines, l'organisation des services s'est nettement améliorée et nos coûts matières ont baissé sans toucher à la qualité.",
+      "Jérémy est venu poser un regard neuf sur notre cuisine. En quelques semaines, les services sont devenus plus fluides et nos ratios matières ont retrouvé une cohérence — sans rien céder sur la qualité de l'assiette.",
     name: 'Prénom Nom',
     role: 'Propriétaire',
     place: 'Établissement, Ville',
@@ -18,7 +18,7 @@ export const TESTIMONIALS = [
     id: 't2',
     published: false,
     quote:
-      "Sa méthode est claire, opérationnelle, sans bla-bla. Les équipes ont adhéré rapidement et les résultats sont mesurables au quotidien.",
+      "Une méthode claire, des outils concrets, un vrai temps sur le terrain avec la brigade. Les fiches techniques, l'organisation du coup de feu, la gestion des pertes — tout a été remis à plat avec nous, et ça tient.",
     name: 'Prénom Nom',
     role: 'Chef de cuisine',
     place: 'Établissement, Ville',
