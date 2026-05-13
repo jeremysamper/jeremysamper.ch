@@ -9,9 +9,6 @@ import { imagetools } from 'vite-imagetools';
  *   ?card  → 400/800       — pour vignettes, portraits et mood images
  *                            (max-width ≤ ~440px côté affichage)
  *
- *   ?responsive : alias rétrocompatible vers ?wide tant que les imports
- *                 historiques n'ont pas tous migré. À retirer au commit 9.
- *
  * Toutes les variantes sont émises en WebP (q82 pour wide, q80 pour
  * card — légèrement plus agressif sur les petites tailles, écart visuel
  * imperceptible). Sortie `as=img` → l'import retourne
@@ -22,7 +19,7 @@ export default defineConfig({
     react(),
     imagetools({
       defaultDirectives: (url) => {
-        if (url.searchParams.has('wide') || url.searchParams.has('responsive')) {
+        if (url.searchParams.has('wide')) {
           return new URLSearchParams({
             w: '640;1024;1600',
             format: 'webp',
