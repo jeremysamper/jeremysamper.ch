@@ -1,9 +1,9 @@
 import Container from '../components/ui/Container.jsx';
 import FadeIn from '../components/ui/FadeIn.jsx';
 import Button from '../components/ui/Button.jsx';
-import ResponsiveImage from '../components/ui/ResponsiveImage.jsx';
-import portrait from '../assets/images/portrait-jeremy.jpg?responsive';
-import action from '../assets/images/assiette-bleue.jpg?responsive';
+import Image from '../components/ui/Image.jsx';
+import portrait from '../assets/images/portrait-jeremy.jpg?wide';
+import action from '../assets/images/assiette-bleue.jpg?card';
 import { useDocumentTitle } from '../hooks/useDocumentTitle.js';
 import styles from './About.module.css';
 
@@ -41,7 +41,7 @@ export default function About() {
       {/* HERO PORTRAIT */}
       <header className={styles.hero}>
         <div className={styles.heroImage}>
-          <ResponsiveImage picture={portrait} alt="Portrait de Jérémy Samper en cuisine, veste de chef sombre, regard intense tourné sur le côté" sizes="100vw" loading="eager" fetchPriority="high" />
+          <Image src={portrait} alt="Portrait de Jérémy Samper en cuisine, veste de chef sombre, regard intense tourné sur le côté" fill sizes="100vw" objectPosition="center 30%" loading="eager" fetchPriority="high" />
           <div className={styles.heroOverlay} aria-hidden="true" />
         </div>
         <Container className={styles.heroContent}>
@@ -63,7 +63,7 @@ export default function About() {
             Plusieurs années sur le terrain, <em>en Suisse romande et en France.</em>
           </h2>
 
-          <div className={styles.body}>
+          <div className={`${styles.body} measure`}>
             <p>
               Après plusieurs années passées en cuisine, en Suisse romande et en France,
               j'ai choisi de mettre mon expérience au service des restaurateurs et hôteliers
@@ -90,7 +90,7 @@ export default function About() {
         <div className={styles.actionGrid}>
           <FadeIn className={styles.actionImageCol}>
             <figure className={styles.actionFigure}>
-              <ResponsiveImage picture={action} alt="Création gastronomique vue de dessus : assiette en céramique bleue avec pétales violets, mousse et croûtons sur fond granite" sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+              <Image src={action} alt="Création gastronomique vue de dessus : assiette en céramique bleue avec pétales violets, mousse et croûtons sur fond granite" ratio="4/5" sizes="(min-width: 880px) 420px, 100vw" loading="lazy" />
               <figcaption className={styles.actionCaption}>
                 <span aria-hidden="true">—</span> Sur le terrain, en cuisine
               </figcaption>
