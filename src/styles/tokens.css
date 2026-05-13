@@ -100,10 +100,12 @@
   --section-y-lg: clamp(7rem, 12vw, 14rem);
 
   /* ─── LAYOUT ───────────────────────────────── */
-  --container-max: 1440px;
+  --container-max: 1440px;          /* Hero & sections full-bleed uniquement */
+  --container-content: 1120px;      /* Container par défaut — contenu éditorial */
   --container-padding: clamp(1.25rem, 4vw, 3rem);
   --content-max: 720px;
   --content-narrow: 560px;
+  --measure-max: 65ch;              /* Mesure de lecture cible pour <p> longs */
 
   /* ─── DÉTAIL ───────────────────────────────── */
   --rule-thin: 1px;

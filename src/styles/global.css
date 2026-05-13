@@ -155,3 +155,15 @@ hr {
   background: var(--color-rule);
   margin: var(--space-8) 0;
 }
+
+/* ─── UTILITAIRES ──────────────────────────── */
+
+/*
+ * .measure : limite la largeur d'un bloc texte à ~65 caractères pour
+ * une bonne mesure de lecture. À appliquer sur les <p> longs ou les
+ * blocs `.body` des pages éditoriales (About, Services, légales).
+ * Sans effet sur mobile (la viewport limite déjà la largeur).
+ */
+.measure {
+  max-width: var(--measure-max);
+}
